@@ -51,6 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} bg-background text-foreground`}>
+          <SmoothScroller />
         <ThemeProvider>
           <div className="relative flex min-h-screen flex-col">
             <Header />
