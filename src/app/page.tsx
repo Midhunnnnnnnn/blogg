@@ -11,9 +11,11 @@ export default function Home() {
 
   return (
     <>
+
       <Hero />
       <FeaturedPosts posts={featuredPosts} />
       <Newsletter />
+
     </>
   );
 }

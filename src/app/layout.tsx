@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css';  // ← Fix this line
+import './globals.css';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import { SITE_CONFIG } from '../lib/constants';
+import { ThemeProvider } from '@/context/ThemeContext';
+import SmoothScroller from '../components/layout/SmoothScroller';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -48,12 +50,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <div className="relative flex min-h-screen flex-col">
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </div>
+      <body className={`${inter.className} bg-background text-foreground`}>
+        <ThemeProvider>
+          <div className="relative flex min-h-screen flex-col">
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
