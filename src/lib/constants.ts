@@ -3,6 +3,7 @@ export const SITE_CONFIG = {
   title: 'MinimalBlog - A Modern Developer Blog',
   description: 'A minimalist blog focused on web development, technology, and creative coding.',
   url: 'https://your-blog-domain.com',
+  ogImage: '/images/og-image.jpg', // Add this line
   author: {
     name: 'Your Name',
     bio: 'Full-stack developer passionate about creating beautiful web experiences.',

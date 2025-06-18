@@ -11,10 +11,10 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   // Sort posts by date (newest first)
-  const sortedPosts = [...posts].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+   const sortedPosts = [...posts].sort(
+    (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
   );
-
+  
   return (
     <div className="container mx-auto px-4 py-12">
       <h1 className="text-3xl font-bold mb-8">Blog</h1>
@@ -26,7 +26,7 @@ export default function BlogPage() {
               <CardHeader>
                 <h2 className="text-xl font-bold">{post.title}</h2>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
-                  {formatDate(post.date)}
+                  {formatDate(post.publishedAt)}
                 </p>
               </CardHeader>
               <CardContent>
@@ -48,4 +48,5 @@ export default function BlogPage() {
       </div>
     </div>
   );
+
 }

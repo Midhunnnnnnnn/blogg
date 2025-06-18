@@ -1,40 +1,40 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css';
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
-import { siteConfig } from '@/lib/constants';
+import './globals.css';  // ← Fix this line
+import Header from '../components/layout/Header';
+import Footer from '../components/layout/Footer';
+import { SITE_CONFIG } from '../lib/constants';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    default: siteConfig.name,
-    template: `%s | ${siteConfig.name}`,
+    default: SITE_CONFIG.name,
+    template: `%s | ${SITE_CONFIG.name}`,
   },
-  description: siteConfig.description,
+  description: SITE_CONFIG.description,
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: siteConfig.url,
-    title: siteConfig.name,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
+    url: SITE_CONFIG.url,
+    title: SITE_CONFIG.name,
+    description: SITE_CONFIG.description,
+    siteName: SITE_CONFIG.name,
     images: [
       {
-        url: siteConfig.ogImage || '',
+        url: SITE_CONFIG.ogImage || '/images/og-default.jpg',
         width: 1200,
         height: 630,
-        alt: siteConfig.name,
+        alt: SITE_CONFIG.name,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: siteConfig.name,
-    description: siteConfig.description,
-    images: [siteConfig.ogImage || ''],
-    creator: '@yourusername',
+    title: SITE_CONFIG.name,
+    description: SITE_CONFIG.description,
+    images: [SITE_CONFIG.ogImage || '/images/og-default.jpg'],
+    creator: SITE_CONFIG.author.social.twitter,
   },
   icons: {
     icon: '/favicon.ico',
